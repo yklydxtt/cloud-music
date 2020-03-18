@@ -1,0 +1,39 @@
+{
+  "name": "cloud-music",
+  "version": "1.0.0",
+  "description": "+ 模仿网易云音乐的项目 + 需要先启动api https://github.com/Binaryify/NeteaseCloudMusicApi + npm run dev + 打开 localhost：3001",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.server.js",
+    "build:client":"webpack --config webpack.client.js",
+    "start": "node ./build/bundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yklydxtt/cloud-music.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yklydxtt/cloud-music/issues"
+  },
+  "homepage": "https://github.com/yklydxtt/cloud-music#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-merge": "^4.2.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
+}
