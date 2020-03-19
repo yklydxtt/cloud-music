@@ -1,11 +1,17 @@
 import express from 'express';
 import React from 'react'
+import { StaticRouter } from "react-router-dom"
 import { renderToString } from 'react-dom/server';
-import Find from '../pages/Find/'
+import { renderRoutes } from 'react-router-config'
+import routes from '../Routes'
 var app = express();
-const content = renderToString(<Find/>);
 app.use(express.static('public'));
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
+  const content = renderToString(
+    <StaticRouter location={req.path} context={{}}>
+      {renderRoutes(routes)}
+    </StaticRouter>
+  );
   res.send(`<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -14,7 +20,7 @@ app.get('/', function (req, res) {
       <title>Document</title>
   </head>
   <body>
-      <div id='root'><div>${content}</div></div>
+      <div id='root'>${content}</div>
       <script src='/index.js'></script>
   </body>
   </html>`);

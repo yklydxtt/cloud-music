@@ -1,9 +1,11 @@
-import React,{Fragment} from 'react'
+import React from 'react'
 import ReactDom from 'react-dom';
-import Find from '../pages/Find/'
+import {BrowserRouter} from "react-router-dom"
+import {renderRoutes} from 'react-router-config'
+import routes from '../Routes'
 const App = () => {
     return (
-        <div><Find /></div>
+    <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
     )
 }
 ReactDom.hydrate(<App/>,document.getElementById('root'))
