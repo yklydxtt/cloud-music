@@ -1,11 +1,11 @@
 import React from 'react'
 import {renderRoutes} from 'react-router-config'
 import Header from './conponents/Header'
-const App =({route})=>{
+const App =(props)=>{
     return (
         <div>
-            <Header />
-            {renderRoutes(route.routes)}
+            <Header staticContext={props.staticContext} />
+            {renderRoutes(props.route.routes)}
         </div>
     )
 }

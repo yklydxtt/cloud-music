@@ -9,6 +9,25 @@ const serverConfig={
     output:{
         path: path.resolve(__dirname, "build"),
         filename: "bundle.js",
+    },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            include: [
+                path.resolve(__dirname, "src")
+            ],
+            use: [
+                'isomorphic-style-loader',
+                {
+                    loader: 'css-loader',
+                    options: {
+                        importLoaders: 1,
+                        modules: true,
+                        localIdentName: '[name]__[local]--[hash:base64:5]',
+                    }
+                },
+            ]
+        }]
     }
 }
 module.exports=merge(common,serverConfig)

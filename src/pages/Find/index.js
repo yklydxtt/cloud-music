@@ -1,7 +1,12 @@
 import React from 'react'
-const Find =()=>{
+import {connect} from 'react-redux'
+
+const Find =(props)=>{
     return (
         <div>FindMusic</div>
     )
 }
-export default Find;
+const mapStateToProps = state => ({
+	name: state.find.name
+});
+export default connect(mapStateToProps,null)(Find);
