@@ -7,6 +7,7 @@ app.use(express.static('public'));
 app.get('*', function (req, res) {
   const store = getStore(req);
   const context={css:[]}
+  context.path=req.path;
   res.send(render(req,store, routes,context));
 });
 app.listen(3001, function () {
