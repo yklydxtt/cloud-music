@@ -111,9 +111,17 @@ body, textarea, select, input, button a{
 .header .wrap .inputWarp .search{
     width: 200px;
     clear: both;
-    background-color: #ff0;
+    background-color: #fff;
     position: absolute;
     top: 71px;
+    z-index: 120;
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+    box-shadow: 0 4px 7px #555;
+
+}
+.header .wrap .inputWarp .search a{
+    color: #666;
 }
 .header .wrap .inputWarp .search .note{
     height: 17px;
@@ -126,3 +134,28 @@ body, textarea, select, input, button a{
 /* .header .wrap .inputWarp .search .rap{
 
 } */
+/* .header .wrap .inputWarp .search .rap .rapWrap{
+    display: flex;
+    justify-content: space-around;
+} */
+.header .wrap .inputWarp .search .rap .rapWrap .rapTitle{
+    float: left;
+    width: 52px;
+    margin-right: -100px;
+    margin-top: 10px;
+    padding: 10 0 0 10;
+    /* border-right: 1px solid #e2e2e2; */
+    line-height: 17px;
+}
+.header .wrap .inputWarp .search .rap .rapWrap .rapItem{
+    margin-left: 62px;
+    border-top: 1px solid #e2e2e2;
+    border-left: 1px solid #e2e2e2;
+    padding: 6px 5px 0px 5px;
+}
+.nav{
+    z-index: 90;
+    height: 35px;
+    background-color: #c20c0c;
+    border-bottom: 1px solid #a40011;
+}

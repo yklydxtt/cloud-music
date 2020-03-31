@@ -44,10 +44,10 @@ const Header = (props) => {
                                 <Link to='/search' className={style.xtag}>搜索"{inputval}"相关用户></Link>
                             </div>
                             <div className={style.rap}>{search.order && search.order.map((item, index) => (
-                                <div key={item}>
-                                    <div>{item}</div>
-                                    <div>
-                                        {search[item].map((value, index) => <Link key={value.id}>{value.name}</Link>
+                                <div key={item} className={style.rapWrap}>
+                                    <div className={style.rapTitle}>{item}</div>
+                                    <div className={style.rapItem}>
+                                        {search[item].map((value, index) => <Link key={value.id} to='/search' >{value.name}</Link>
                                         )}
                                     </div>
                                 </div>
@@ -58,6 +58,7 @@ const Header = (props) => {
                     <a className={style.login}>登录</a>
                 </div>
             </div>
+            <div className={style.nav}></div>
         </div>
     )
 }
