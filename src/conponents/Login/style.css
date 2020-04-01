@@ -1,0 +1,7 @@
+.login {
+    width: 530px;
+    height: 370px;
+    background-color: #ff0;
+    position: absolute;
+    z-index: 9999;
+}
