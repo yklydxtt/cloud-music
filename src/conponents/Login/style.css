@@ -4,4 +4,13 @@
     background-color: #ff0;
     position: absolute;
     z-index: 9999;
+    box-shadow: 0 5 16 rgba(#000, #000, #000, 8);
+    border-radius: 4px;
+}
+.login .title{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 18px;
+    height: 38px;
+    align-items: center;
 }

@@ -10,7 +10,8 @@ const Header = (props) => {
     const [path, setPath] = useState(props.staticContext ? props.staticContext.path : window.location.pathname);
     const [input, setInput] = useState('');
     const [inputval, setInputVal] = useState('');
-    const [view, setView] = useState('none')
+    const [view, setView] = useState('none');
+    const [loginView,setLoginView]=useState(false)
     const { search } = props
     if (props.staticContext) {
         props.staticContext.css.push(style._getCss())
@@ -28,6 +29,9 @@ const Header = (props) => {
     }
     const handleblur = () => {
         setView('none')
+    }
+    const login=()=>{
+        setLoginView(true)
     }
     return (
         <div>
@@ -61,8 +65,8 @@ const Header = (props) => {
                         </div>
                     </div>
                     <a className={style.create}>创作者中心</a>
-                    <a className={style.login}>登录</a>
-                    <Login staticContext={props.staticContext}/>
+                    <a className={style.login} onClick={login} >登录</a>
+                    {loginView?<Login view={setLoginView} />:null}
                 </div>
             </div>
             <div className={style.nav}></div>
