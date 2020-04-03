@@ -31,7 +31,7 @@ const Header = (props) => {
         setView('none')
     }
     const login=()=>{
-        setLoginView(true)
+        setLoginView(!loginView)
     }
     return (
         <div>
@@ -66,7 +66,7 @@ const Header = (props) => {
                     </div>
                     <a className={style.create}>创作者中心</a>
                     <a className={style.login} onClick={login} >登录</a>
-                    {loginView?<Login view={setLoginView} />:null}
+                    {loginView?<Login view={login} />:null}
                 </div>
             </div>
             <div className={style.nav}></div>
