@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import style from './style.css';
 import topbar from './topbar.png';
-import { search } from './store/action'
+import { search, logout } from './store/action'
 import Login from '../Login'
 
 const Header = (props) => {
@@ -11,8 +11,9 @@ const Header = (props) => {
     const [input, setInput] = useState('');
     const [inputval, setInputVal] = useState('');
     const [view, setView] = useState('none');
-    const [loginView,setLoginView]=useState(false)
-    const { search } = props
+    const [loginView, setLoginView] = useState(false);
+    const [loginList, setLoginList] = useState(false)
+    const { search, loginData } = props;
     if (props.staticContext) {
         props.staticContext.css.push(style._getCss())
     }
@@ -30,9 +31,20 @@ const Header = (props) => {
     const handleblur = () => {
         setView('none')
     }
-    const login=()=>{
+    const login = () => {
         setLoginView(!loginView)
     }
+    const handleLogOut = () => {
+        new Promise(
+            function (resolve, reject) {
+                props.handleLoginOut();
+                resolve()
+            }
+        ).then(()=>{
+            window.location.reload()
+        })
+    }
+
     return (
         <div>
             <div className={style.header}>
@@ -65,8 +77,20 @@ const Header = (props) => {
                         </div>
                     </div>
                     <a className={style.create}>创作者中心</a>
-                    <a className={style.login} onClick={login} >登录</a>
-                    {loginView?<Login view={login} />:null}
+                    {loginData ? <div className={style.loginStatus} onMouseOver={() => { setLoginList(true) }} onMouseOut={() => { setLoginList(false) }}>
+                        <img src={loginData.avatarUrl} />
+                        <ul style={{ display: loginList ? 'block' : 'none' }}>
+                            <li><i></i>我的主页</li>
+                            <li><i></i>我的消息</li>
+                            <li><i></i>我的等级</li>
+                            <li><i></i>VIP会员</li>
+                            <li><i></i>我的主页</li>
+                            <li><i></i>个人设置</li>
+                            <li><i></i>实名认证</li>
+                            <li onClick={handleLogOut}><i></i>退出</li>
+                        </ul>
+                    </div> : <a className={style.login} onClick={login} >登录</a>}
+                    {loginView ? <Login view={login} /> : null}
                 </div>
             </div>
             <div className={style.nav}></div>
@@ -74,11 +98,15 @@ const Header = (props) => {
     )
 }
 const mapStateToProps = state => ({
-    search: state.head.search
+    search: state.head.search,
+    loginData: state.head.loginData
 });
 const mapDispatchToProps = (dispatch) => ({
     handleSearch: (value) => {
         dispatch(search(value))
+    },
+    handleLoginOut: () => {
+        dispatch(logout())
     }
 })
 const exportHeader = connect(mapStateToProps, mapDispatchToProps)(Header);

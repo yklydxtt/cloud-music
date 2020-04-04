@@ -78,6 +78,42 @@ body, textarea, select, input, button a{
 .header .wrap .create:hover{
     border: 1px solid #fff;
 }
+.header .wrap .loginStatus img{
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+.header .wrap .loginStatus ul{
+    position: absolute;
+    border: 1px solid #202020;
+    box-shadow: 0px 8px 24px 0 rgba(0,0,0,0.5);
+    border-radius: 4px;
+    margin-left: -50px;
+    margin-top: -3px;
+    color: #ccc;
+    list-style: none;
+    padding: 0;
+}
+.header .wrap .loginStatus ul li{
+    height: 34px;
+    background: #2b2b2b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+}
+.header .wrap .loginStatus ul li:hover{
+    background-color: #3b3b3b;
+    /* padding: 0 20px; */
+}
+.header .wrap .loginStatus ul li i{
+    background: url('/toplist.png') no-repeat 0% 35.5%;
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    margin-right: 5px;
+}
 .header .wrap .login {
     color: #787878;
     font-size: 12px;

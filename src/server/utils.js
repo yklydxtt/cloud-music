@@ -3,7 +3,7 @@ import { StaticRouter } from "react-router-dom"
 import { renderToString } from 'react-dom/server';
 import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux';
-export const render = (req,store, routes,context) => {
+export const render = (req, store, routes, context) => {
     const content = renderToString(
         <Provider store={store} >
             <StaticRouter location={req.path} context={context}>
@@ -11,7 +11,7 @@ export const render = (req,store, routes,context) => {
             </StaticRouter>
         </Provider>
     );
-    const cssStr=context.css.join();
+    const cssStr = context.css.join();
     return `<!DOCTYPE html>
       <html lang="en">
       <head>
@@ -22,6 +22,11 @@ export const render = (req,store, routes,context) => {
       </head>
       <body>
           <div id='root'>${content}</div>
+          <script>
+        window.context ={
+             state:${JSON.stringify(store.getState())}
+        }
+        </script>
           <script src='/index.js'></script>
       </body>
       </html>`
