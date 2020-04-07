@@ -17,6 +17,7 @@ export const render = (req, store, routes, context) => {
       <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css">
           <title>网易云音乐</title>
           <style>${cssStr}</style>
       </head>

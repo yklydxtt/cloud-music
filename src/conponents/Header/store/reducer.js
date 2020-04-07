@@ -1,6 +1,6 @@
 import { SEARCH } from "./container";
 import { LOGINDATA } from "./container";
-import { LOGINOUT } from "./container";
+import { LOGOUT } from "./container";
 
 const defaultState = {
     search: [],
@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
                 loginData:action.value
             }
             return loginData;
-        case LOGINOUT:
+        case LOGOUT:
             const logout={
                 ...defaultState,
                 loginData:null
