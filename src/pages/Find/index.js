@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Swiper from 'swiper';
-import '../../../node_modules/swiper/css/swiper.css';
+import '../../../node_modules/swiper/swiper.less';
 import style from './style.css';
 
 const Find = (props) => {
