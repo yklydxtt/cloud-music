@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import style from './style.css';
