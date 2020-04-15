@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import Swiper from 'swiper';
 // import '../../../node_modules/swiper/css/swiper.css';
-import style from './style.sass'
+import style from './style.css';
 
 const Find = (props) => {
         var mySwiper = new Swiper('.swiper-container', {

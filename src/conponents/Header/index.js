@@ -8,7 +8,6 @@ import Login from '../Login'
 
 const Header = (props) => {
     const [path, setPath] = useState(props.staticContext ? props.staticContext.path : window.location.pathname);
-    const [input, setInput] = useState('');
     const [inputval, setInputVal] = useState('');
     const [view, setView] = useState('none');
     const [loginView, setLoginView] = useState(false);
@@ -17,13 +16,14 @@ const Header = (props) => {
     if (props.staticContext) {
         props.staticContext.css.push(style._getCss())
     }
+    const handleChange=(e)=>{
+        setInputVal(e.target.value);
+    }
     const handleInput = () => {
-        const value = input.value.trim();
         const { handleSearch } = props
-        if (value) {
-            handleSearch(value.trim())
+        if (inputval) {
+            handleSearch(inputval.trim())
         }
-        setInputVal(value.trim())
         if (inputval.length) {
             setView('block')
         }
@@ -60,7 +60,7 @@ const Header = (props) => {
                         <sup style={{ backgroundImage: `url(${topbar})` }}>&nbsp;</sup>
                     </div>
                     <div className={style.inputWarp} style={{ backgroundImage: `url(${topbar})` }}>
-                        <input placeholder='音乐/视频/电台/用户' ref={node => setInput(node)} onKeyUp={handleInput} onFocus={handleInput} onBlur={handleblur} />
+                        <input placeholder='音乐/视频/电台/用户' onChange={handleChange} onKeyUp={handleInput} onFocus={handleInput} onBlur={handleblur} />
                         <div className={style.search} style={{ display: view }}>
                             <div className={style.note}>
                                 <Link to='/search' className={style.xtag}>搜索"{inputval}"相关用户></Link>
